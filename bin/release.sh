@@ -9,7 +9,6 @@ if test $(git rev-parse --abbrev-ref HEAD) = "master"; then
         MSG="$(git log -1 --pretty=%B)"
         echo "$MSG" | grep "Bump version"
         if test $? -eq 0; then
-            VERSION=$(echo "$MSG" | awk -F→ '{print $2}')
             echo "---------------------------------------------------"
             echo "Releasing version ${VERSION} ..."
             echo "---------------------------------------------------"
