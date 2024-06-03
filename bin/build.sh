@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP_NAME=${APP_NAME:-"godocjson"}
-VERSION=${VERSION:-"v1.0.1"}
+VERSION=${VERSION:-"v1.0.2"}
 PLATFORMS=("linux/amd64" "linux/arm64" "darwin/amd64" "darwin/arm64")
 
 if [ ! -e "build" ]; then
