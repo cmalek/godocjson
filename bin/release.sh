@@ -15,14 +15,10 @@ if test $(git rev-parse --abbrev-ref HEAD) = "master"; then
             echo "---------------------------------------------------"
             echo
             echo
-            git checkout build
-            git merge master
-            echo "Pushing build to origin ..."
-            git push --tags origin build
+            git push --tags origin master
             if [ ! -e "build" ]; then
                 mkdir build
             fi
-
             for PLATFORM in "${PLATFORMS[@]}"
             do
                 OS=$(echo $PLATFORM | cut -d'/' -f1)
@@ -45,8 +41,6 @@ if test $(git rev-parse --abbrev-ref HEAD) = "master"; then
                     "${APP_NAME}-${VERSION}-darwin-arm64.tar.gz#macOS ARM 64-bit" \
                     --title "${APP_NAME} ${VERSION}" \
                     --notes "Official release of ${APP_NAME}-${VERSION}."
-            git checkout master
-            git push origin master
         else
             echo "Last commit was not a bumpversion; aborting."
             echo "Last commit message: ${MSG}"
