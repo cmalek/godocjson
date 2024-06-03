@@ -16,9 +16,7 @@ TARFILE="${FILE}.tar.gz"
 URL="https://github.com/cmalek/godocjson/releases/download/${VERSION}/${TARFILE}"
 
 curl -L $URL -o $TARFILE
-tar -xzvf --strip-components=1 $TARFILE
-if [ ! -e /usr/local/bin ]; then
-    sudo mkdir -p /usr/local/bin
-fi
-sudo mv $FILE godocjson
-rm -f $FILE $TARFILE
+tar -xzvf $TARFILE
+mv $FILE godocjson
+chmod +x godocjson
+rm $TARFILE $FILE

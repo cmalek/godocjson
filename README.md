@@ -5,11 +5,12 @@ Produces JSON-formatted Go documentation.
 ## Installation
 
 ```bash
-curl -X GET https://github.com/cmalek/godocjson/install.sh | bash
+curl -X GET https://raw.githubusercontent.com/cmalek/godocjson/master/install.sh | bash
 ```
 
 This will download the installation script and install the appropriate go binary
-for your OS and architecture into /usr/local/bin/
+for your OS and architecture into your local directory.   You may then move it to
+the system folder of your choice.
 
 ## Usage
 

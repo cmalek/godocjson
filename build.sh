@@ -2,7 +2,7 @@
 
 APP_NAME="godocjson"
 VERSION=$(cat version.txt)
-PLATFORMS=("linux/amd64" "linux/arm64" "darwin/amd64" "darwin/arm64" "windows/amd64")
+PLATFORMS=("linux/amd64" "linux/arm64" "darwin/amd64" "darwin/arm64"]
 
 if [ ! -e "build" ]; then
     mkdir build
@@ -13,9 +13,6 @@ do
     OS=$(echo $PLATFORM | cut -d'/' -f1)
     ARCH=$(echo $PLATFORM | cut -d'/' -f2)
     OUTPUT_NAME="build/${APP_NAME}-${VERSION}-${OS}-${ARCH}"
-    if [ $OS = "windows" ]; then
-        OUTPUT_NAME+=".exe"
-    fi
 
     env GOOS=$OS GOARCH=$ARCH go build -o $OUTPUT_NAME
     if [ $? -ne 0 ]; then
@@ -23,12 +20,6 @@ do
         exit 1
     fi
 
-    if [ $OS = "windows" ]; then
-        NEW_OUTPUT_NAME="${OUTPUT_NAME%.*}"
-        zip "${NEW_OUTPUT_NAME}.zip" "$OUTPUT_NAME"
-        rm "$OUTPUT_NAME"
-    else
-        tar -czvf "${OUTPUT_NAME}.tar.gz" "$OUTPUT_NAME"
-        rm "$OUTPUT_NAME"
-    fi
+    tar -czvf "${OUTPUT_NAME}.tar.gz" -C build "$OUTPUT_NAME"
+    rm "$OUTPUT_NAME"
 done
