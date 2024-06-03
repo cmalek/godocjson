@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP_NAME=${APP_NAME:-"godocjson"}
-VERSION=${VERSION:-"v1.0.3"}
+VERSION=${VERSION:-"v1.0.4"}
 if [ ! -e build ]; then
     echo "Build directory does not exist. Run build.sh first."
     exit 1

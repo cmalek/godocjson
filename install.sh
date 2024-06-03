@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="v1.0.3"
+VERSION="v1.0.4"
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
 ARCH=$(uname -m)
 
