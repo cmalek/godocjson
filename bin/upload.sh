@@ -1,7 +1,7 @@
 #!/bin/bash
 
-APP_NAME="godocjson"
-VERSION=$(cat version.txt)
+APP_NAME=${APP_NAME:-"godocjson"}
+VERSION=${VERSION:-"v1.0.0"}
 if [ ! -e build ]; then
     echo "Build directory does not exist. Run build.sh first."
     exit 1
@@ -13,6 +13,5 @@ cd build && \
       "${APP_NAME}-${VERSION}-linux-arm64.tar.gz#Linux ARM 64-bit" \
       "${APP_NAME}-${VERSION}-darwin-amd64.tar.gz#macOS Intel 64-bit" \
       "${APP_NAME}-${VERSION}-darwin-arm64.tar.gz#macOS ARM 64-bit" \
-      "${APP_NAME}-${VERSION}-windows-amd64.zip#Windows Intel 64-bit" \
       --title "${APP_NAME} ${VERSION}" \
       --notes "Official release of ${APP_NAME}-${VERSION}."
