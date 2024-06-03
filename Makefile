@@ -5,7 +5,7 @@
 
 APP_NAME=godocjson
 
-VERSION := "v1.0.0"
+VERSION := "v1.0.1"
 PACKAGE := "godocjson"
 
 default: build
