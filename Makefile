@@ -22,7 +22,6 @@ help:
 	@echo
 
 release:
-	@echo "GOPATH=${GOPATH}"
 	APP_NAME=$(APP_NAME) VERSION=$(VERSION) bin/release.sh
 
 get-deps:
@@ -32,7 +31,7 @@ get-deps:
 build:
 	APP_NAME=$(APP_NAME) VERSION=$(VERSION) bin/build.sh
 
-upload:
+upload: build
 	APP_NAME=$(APP_NAME) VERSION=$(VERSION) bin/upload.sh
 
 clean:
