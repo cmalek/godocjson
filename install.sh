@@ -19,4 +19,4 @@ curl -L $URL -o $TARFILE
 tar -xzvf $TARFILE
 mv $FILE godocjson
 chmod +x godocjson
-rm $TARFILE $FILE
+rm $TARFILE
