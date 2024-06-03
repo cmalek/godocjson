@@ -2,7 +2,7 @@
 
 APP_NAME="godocjson"
 VERSION=$(cat version.txt)
-PLATFORMS=("linux/amd64" "darwin/amd64" "windows/amd64")
+PLATFORMS=("linux/amd64" "linux/arm64" "darwin/amd64" "darwin/arm64" "windows/amd64")
 
 if [ ! -e "build" ]; then
     mkdir build
@@ -24,7 +24,8 @@ do
     fi
 
     if [ $OS = "windows" ]; then
-        zip "${OUTPUT_NAME}.zip" "$OUTPUT_NAME"
+        NEW_OUTPUT_NAME="${OUTPUT_NAME%.*}"
+        zip "${NEW_OUTPUT_NAME}.zip" "$OUTPUT_NAME"
         rm "$OUTPUT_NAME"
     else
         tar -czvf "${OUTPUT_NAME}.tar.gz" "$OUTPUT_NAME"
